@@ -68,7 +68,8 @@ class Program
         }
     }
     
-     static void CalcularProdutoEscalarEVetor()
+    
+    static void CalcularProdutoEscalarEVetor()
         {
             // Solicita o vetor A
             Console.WriteLine("Digite os 3 elementos do vetor A separados por espaço:");
