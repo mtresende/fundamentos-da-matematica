@@ -68,6 +68,35 @@ class Program
         }
     }
     
+    static void ProdutoVetorial()
+    {
+            // Declaração das variáveis dos vetores A e B
+            int ax, ay, az;
+            int bx, by, bz;
+            
+            // Entrada dos componentes do vetor A
+            Console.WriteLine("Digite os componentes do Vetor A (Ax Ay Az):");
+            string[] entradaA = Console.ReadLine().Split(' ');
+            ax = int.Parse(entradaA[0]);
+            ay = int.Parse(entradaA[1]);
+            az = int.Parse(entradaA[2]);
+            
+            // Entrada dos componentes do vetor B
+            Console.WriteLine("Digite os componentes do Vetor B (Bx By Bz):");
+            string[] entradaB = Console.ReadLine().Split(' ');
+            bx = int.Parse(entradaB[0]);
+            by = int.Parse(entradaB[1]);
+            bz = int.Parse(entradaB[2]);
+            
+            // Cálculo do produto vetorial
+            int cx = ay * bz - az * by;
+            int cy = az * bx - ax * bz;
+            int cz = ax * by - ay * bx;
+
+            // Saída do resultado
+            Console.WriteLine($"O produto vetorial A x B é: ({cx}, {cy}, {cz})");
+    }
+
     
     static void CalcularProdutoEscalarEVetor()
         {
