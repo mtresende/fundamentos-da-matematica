@@ -70,6 +70,8 @@ class Program
     
     static void ProdutoVetorial()
     {
+            //Formula:( (A_y * B_z - A_z * B_y), (A_z * B_x - A_x * B_z), (A_x * B_y - A_y * B_x) )
+
             // Declaração das variáveis dos vetores A e B
             int ax, ay, az;
             int bx, by, bz;
