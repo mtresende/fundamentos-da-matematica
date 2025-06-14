@@ -67,18 +67,8 @@ class Program
             Console.WriteLine($"A equação da reta é: y = {a}x {b}");
         }
     }
-
-    public static void Main(string[] args)
-    {
-
-        DistanciaEntrePontos();
-
-        EqReta();
-
-        CalcularProdutoEscalarEVetor();
-
-
-        static void CalcularProdutoEscalarEVetor()
+    
+     static void CalcularProdutoEscalarEVetor()
         {
             // Solicita o vetor A
             Console.WriteLine("Digite os 3 elementos do vetor A separados por espaço:");
@@ -160,5 +150,15 @@ class Program
                 Console.WriteLine("Relação: Apenas oblíquos");
             }
         }
+
+    public static void Main(string[] args)
+    {
+
+        DistanciaEntrePontos();
+
+        EqReta();
+
+        CalcularProdutoEscalarEVetor();
+
     }
 }
