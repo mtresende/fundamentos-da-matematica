@@ -74,95 +74,91 @@ class Program
         DistanciaEntrePontos();
 
         EqReta();
-    }
-}
 
-
-
- {
         CalcularProdutoEscalarEVetor();
-    }
 
-    static void CalcularProdutoEscalarEVetor()
-    {
-        // Solicita o vetor A
-        Console.WriteLine("Digite os 3 elementos do vetor A separados por espaço:");
-        string[] entradaA = Console.ReadLine().Split(' ');
-        int[] vetorA = new int[3];
-        for (int i = 0; i < 3; i++)
+
+        static void CalcularProdutoEscalarEVetor()
         {
-            vetorA[i] = int.Parse(entradaA[i]);
-        }
+            // Solicita o vetor A
+            Console.WriteLine("Digite os 3 elementos do vetor A separados por espaço:");
+            string[] entradaA = Console.ReadLine().Split(' ');
+            int[] vetorA = new int[3];
+            for (int i = 0; i < 3; i++)
+            {
+                vetorA[i] = int.Parse(entradaA[i]);
+            }
 
-        // Solicita o vetor B
-        Console.WriteLine("Digite os 3 elementos do vetor B separados por espaço:");
-        string[] entradaB = Console.ReadLine().Split(' ');
-        int[] vetorB = new int[3];
-        for (int i = 0; i < 3; i++)
-        {
-            vetorB[i] = int.Parse(entradaB[i]);
-        }
+            // Solicita o vetor B
+            Console.WriteLine("Digite os 3 elementos do vetor B separados por espaço:");
+            string[] entradaB = Console.ReadLine().Split(' ');
+            int[] vetorB = new int[3];
+            for (int i = 0; i < 3; i++)
+            {
+                vetorB[i] = int.Parse(entradaB[i]);
+            }
 
-        // Calcula o produto escalar
-        /*
-         * Produto Escalar:
-         * A · B = a1 * b1 + a2 * b2 + a3 * b3
-         * Resultado é um número (escalar)
-         */
-        int produtoEscalar = 0;
-        for (int i = 0; i < 3; i++)
-        {
-            produtoEscalar += vetorA[i] * vetorB[i];
-        }
+            // Calcula o produto escalar
+            /*
+             * Produto Escalar:
+             * A · B = a1 * b1 + a2 * b2 + a3 * b3
+             * Resultado é um número (escalar)
+             */
+            int produtoEscalar = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                produtoEscalar += vetorA[i] * vetorB[i];
+            }
 
-        // Calcula o módulo dos vetores
-        /*
-         * Módulo (norma) de um vetor:
-         * |A| = √(a1² + a2² + a3²)
-         * |B| = √(b1² + b2² + b3²)
-         */
-        double moduloA = Math.Sqrt(vetorA[0] * vetorA[0] + vetorA[1] * vetorA[1] + vetorA[2] * vetorA[2]);
-        double moduloB = Math.Sqrt(vetorB[0] * vetorB[0] + vetorB[1] * vetorB[1] + vetorB[2] * vetorB[2]);
+            // Calcula o módulo dos vetores
+            /*
+             * Módulo (norma) de um vetor:
+             * |A| = √(a1² + a2² + a3²)
+             * |B| = √(b1² + b2² + b3²)
+             */
+            double moduloA = Math.Sqrt(vetorA[0] * vetorA[0] + vetorA[1] * vetorA[1] + vetorA[2] * vetorA[2]);
+            double moduloB = Math.Sqrt(vetorB[0] * vetorB[0] + vetorB[1] * vetorB[1] + vetorB[2] * vetorB[2]);
 
-        // Calcula o ângulo em radianos
-        /*
-         * Fórmula do cosseno do ângulo entre dois vetores:
-         * cos(θ) = (A · B) / (|A| * |B|)
-         * θ = arccos(cos(θ))
-         */
-        double cosseno = produtoEscalar / (moduloA * moduloB);
-        double anguloRad = Math.Acos(cosseno);
+            // Calcula o ângulo em radianos
+            /*
+             * Fórmula do cosseno do ângulo entre dois vetores:
+             * cos(θ) = (A · B) / (|A| * |B|)
+             * θ = arccos(cos(θ))
+             */
+            double cosseno = produtoEscalar / (moduloA * moduloB);
+            double anguloRad = Math.Acos(cosseno);
 
-        // Converte para graus
-        /*
-         * Conversão de radianos para graus:
-         * graus = radianos * (180 / π)
-         */
-        double anguloGraus = anguloRad * (180.0 / Math.PI);
+            // Converte para graus
+            /*
+             * Conversão de radianos para graus:
+             * graus = radianos * (180 / π)
+             */
+            double anguloGraus = anguloRad * (180.0 / Math.PI);
 
-        // Exibe os resultados
-        Console.WriteLine();
-        Console.WriteLine("Resultado:");
-        Console.WriteLine($"Produto Escalar: {produtoEscalar}");
-        Console.WriteLine($"Ângulo entre os vetores: {anguloGraus:F2} graus");
+            // Exibe os resultados
+            Console.WriteLine();
+            Console.WriteLine("Resultado:");
+            Console.WriteLine($"Produto Escalar: {produtoEscalar}");
+            Console.WriteLine($"Ângulo entre os vetores: {anguloGraus:F2} graus");
 
-        // Classificação com margem de tolerância por causa de precisão dos doubles
-        /*
-         * Se produto escalar ≈ 0 → vetores ortogonais (ângulo ≈ 90°)
-         * Se ângulo ≈ 0° ou 180° → vetores paralelos
-         * Caso contrário → vetores apenas oblíquos
-         */
-        if (Math.Abs(produtoEscalar) < 1e-6)
-        {
-            Console.WriteLine("Relação: Ortogonais");
-        }
-        else if (Math.Abs(anguloGraus) < 1e-6 || Math.Abs(anguloGraus - 180.0) < 1e-6)
-        {
-            Console.WriteLine("Relação: Paralelos");
-        }
-        else
-        {
-            Console.WriteLine("Relação: Apenas oblíquos");
+            // Classificação com margem de tolerância por causa de precisão dos doubles
+            /*
+             * Se produto escalar ≈ 0 → vetores ortogonais (ângulo ≈ 90°)
+             * Se ângulo ≈ 0° ou 180° → vetores paralelos
+             * Caso contrário → vetores apenas oblíquos
+             */
+            if (Math.Abs(produtoEscalar) < 1e-6)
+            {
+                Console.WriteLine("Relação: Ortogonais");
+            }
+            else if (Math.Abs(anguloGraus) < 1e-6 || Math.Abs(anguloGraus - 180.0) < 1e-6)
+            {
+                Console.WriteLine("Relação: Paralelos");
+            }
+            else
+            {
+                Console.WriteLine("Relação: Apenas oblíquos");
+            }
         }
     }
 }
