@@ -1,6 +1,20 @@
 ﻿using System;
 
 class Program {
+
+    //Distância entre pontos:
+
+    static void DistanciaEntrePontos(int xPonto1, int yPonto1, int xPonto2, int yPonto2)
+    {
+        //Fórmula para calcular a distância entre dois pontos: d = √((xB - xA)² + (yB - yA)²)
+        //Onde A se trata do Ponto 1 e B o Ponto 2
+        
+        double distancia = Math.Sqrt(Math.Pow((xPonto2 - xPonto1), 2) + Math.Pow((yPonto2 - yPonto1), 2));
+
+        Console.WriteLine("A distância entre o ponto 1 ({0}, {1}) e o ponto 2({2}, {3}) é: {4:F2}", xPonto1, yPonto1, xPonto2, yPonto2, distancia);
+    }
+
+
     public static void EqReta () {
         // Fórmula: y = ax + b
 
@@ -38,6 +52,18 @@ class Program {
     }
 
     public static void Main (string[] args) {
+
+        Console.WriteLine("Digite a coordenada X do ponto 1:");
+            int xPonto1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Digite a coordenada Y do ponto 1:");
+            int yPonto1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Digite a coordenada X do ponto 2:");
+            int xPonto2 = int.Parse(Console.ReadLine());        
+        Console.WriteLine("Digite a coordenada Y do ponto 2:");
+            int yPonto2 = int.Parse(Console.ReadLine());
+
+        DistanciaEntrePontos(xPonto1, yPonto1, xPonto2, yPonto2);
+
         EqReta();
     }
 }
