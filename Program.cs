@@ -185,12 +185,36 @@ class Program
 
     public static void Main(string[] args)
     {
+        int opcao;
+        Console.WriteLine("------------ Bem vindo ao Trabalho de Fundamentos da Matemática -------------");
+        do
+        {
+            Console.WriteLine("\nDigite o número do cálculo que deseja realizar:");
+            Console.WriteLine("1- Equação da reta\n2- Distância entre pontos\n3- Produto escalar e vetor\n4- Produto vetorial\n0- Sair");
+            opcao = int.Parse(Console.ReadLine());
 
-        DistanciaEntrePontos();
 
-        EqReta();
-
-        CalcularProdutoEscalarEVetor();
-
+            switch (opcao)
+            {
+                case 1:
+                    EqReta();
+                    break;
+                case 2:
+                    DistanciaEntrePontos();
+                    break;
+                case 3:
+                    CalcularProdutoEscalarEVetor();
+                    break;
+                case 4:
+                    ProdutoVetorial();
+                    break;
+                case 0:
+                    Console.WriteLine("Programa encerrado.");
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida.");
+                    break;
+            }
+        } while (opcao != 0);
     }
 }
